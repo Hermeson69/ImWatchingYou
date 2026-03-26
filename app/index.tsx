@@ -75,7 +75,7 @@ export default function Index() {
 
     try {
       const timestamp = new Date().toISOString();
-      const message = `BATTERY:${battery}|GPS:${location.latitude},${location.longitude}|TIMESTAMP:${timestamp}`;
+      const message = `bateria:${battery};lat:${location.latitude};lon:${location.longitude};timestamp:${timestamp}`;
 
       console.log(`🔌 Conectando a ${serverIP}:${serverPort}`);
       console.log("📤 Mensagem:", message);
@@ -83,7 +83,7 @@ export default function Index() {
       // Criar conexão TCP Socket
       const sock = TcpSocket.createConnection(
         {
-          port: parseInt(serverPort),
+          port: parseInt(serverPort, 10),
           host: serverIP,
         },
         () => {
