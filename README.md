@@ -2,7 +2,7 @@
 
 Um aplicativo móvel desenvolvido com [Expo](https://expo.dev) e React Native para *Monitoramento Pervasivo*. O app atua como um nó sensor que coleta dados de bateria e localização GPS do dispositivo Android e os envia via socket TCP para um servidor central em Python.
 
-## 🎯 Objetivo da Atividade
+##  Objetivo da Atividade
 
 **Atividade 2 – Monitoramento Pervasivo (Android → Servidor Python por Sockets)**
 
@@ -12,7 +12,7 @@ O aplicativo coleta em tempo real:
 
 Estes dados são enviados via conexão TCP socket para um servidor Python central, permitindo monitoramento pervasivo do dispositivo.
 
-## 🚀 Instalação
+##  Instalação
 
 1. Clone o repositório:
    ```bash
@@ -26,7 +26,7 @@ Estes dados são enviados via conexão TCP socket para um servidor Python centra
    npm install
    ```
 
-## 📱 Como executar o app (Android)
+##  Como executar o app (Android)
 
 ### Usando Expo Go (Recomendado para desenvolvimento rápido)
 
@@ -62,6 +62,99 @@ ImWatchingYou/
   - index.tsx: Página inicial com campos para IP/Porta e botão de envio
 
 - **assets/**:Armazena imagens, ícones e outros recursos estáticos do app.
+
+##  Tecnologias Utilizadas
+
+- React Native + TypeScript
+- Expo SDK 54
+- `expo-battery` — leitura do nível de bateria
+- `expo-location` — GPS em tempo real
+- `react-native-tcp-socket` — conexão TCP com o servidor
+- Expo Router v6 — navegação
+
+---
+
+## Servidor Python (Back-End)
+
+O app depende de um servidor Python rodando na mesma rede. Sem ele, o envio de dados não funciona.
+
+Repositório do servidor: [Hermeson69/Back-End-servidor-socket](https://github.com/Hermeson69/Back-End-servidor-socket)
+
+```bash
+cd Back-End-servidor-socket
+python main.py
+```
+
+Saída esperada:
+
+```
+=======================================================
+  [SERVIDOR] MONITORAMENTO PERVASIVO
+=======================================================
+  Host: 192.168.1.53
+  Porta: 5000
+=======================================================
+
+  Aguardando dados dos sensores...
+```
+
+> Antes de usar o app, confirme que o servidor está rodando e anote o IP exibido — você vai precisar dele no app.
+
+---
+
+##  Protocolo de Comunicação
+
+O app envia uma string de texto puro via TCP no seguinte formato:
+
+```
+bateria:85;lat:-23.5505;lon:-46.6333;timestamp:2026-03-27T12:00:00.000Z
+```
+
+O servidor responde com:
+
+```
+OK: Dados recebidos com sucesso!
+```
+
+Ambos os dispositivos precisam estar na **mesma rede Wi-Fi**.
+
+---
+
+##  Permissões Android
+
+Declaradas em `app.json` e solicitadas em tempo de execução:
+
+| Permissão | Finalidade |
+|---|---|
+| `INTERNET` | Comunicação TCP com o servidor |
+| `ACCESS_FINE_LOCATION` | GPS preciso |
+| `ACCESS_COARSE_LOCATION` | Fallback de localização por rede |
+| `ACCESS_NETWORK_STATE` | Verificação de conectividade |
+
+> `"usesCleartextTraffic": true` está habilitado no `app.json` para permitir comunicação TCP sem TLS com o servidor local.
+
+---
+
+##  Troubleshooting
+
+### App não conecta ao servidor
+
+- Confirme que o servidor está rodando: `python main.py`
+- Verifique se o IP inserido no app é o IP real da máquina na rede local (não `127.0.0.1`)
+- Confirme que o celular e o computador estão na **mesma rede Wi-Fi**
+- Verifique se a porta `5000` não está bloqueada por firewall
+
+### Localização não carrega
+
+- Aceite a permissão de localização quando o app solicitar
+- Verifique se o GPS está ativado no dispositivo
+
+### `python main.py` retorna "Address already in use"
+
+- A porta `5000` já está ocupada. Encerre o processo anterior ou altere `PORT` em `server/config.py`
+
+---
+
 
 
 ## 🔧 Interface do App
