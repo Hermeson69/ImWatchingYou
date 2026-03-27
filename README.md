@@ -161,8 +161,9 @@ Declaradas em `app.json` e solicitadas em tempo de execução:
 
 ![alt text](assets/images/apkImWatchingYou.jpg)
 
- 
-![Servidor recebendo dados](assets/SaidaServidor.png)
- 
-> Terminal do servidor exibindo os dados recebidos em tempo real: timestamp, IP do cliente (celular), nível de bateria e coordenadas GPS.
+## Saida do Servidor
+
+![alt text](assets/Documentos/SaidaServidor.png)
+
+Terminal do servidor exibindo os dados recebidos em tempo real: timestamp, IP do cliente (celular), nível de bateria e coordenadas GPS(latitude e longitude).
 
