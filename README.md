@@ -1,4 +1,4 @@
-# ImWatchingYou 📱👁️
+# ImWatchingYou 📱👁️ 
 
 Um aplicativo móvel desenvolvido com [Expo](https://expo.dev) e React Native para *Monitoramento Pervasivo*. O app atua como um nó sensor que coleta dados de bateria e localização GPS do dispositivo Android e os envia via socket TCP para um servidor central em Python.
 
@@ -57,11 +57,11 @@ ImWatchingYou/
 
 ### Descrição das pastas principais:
 
-- **app/**: Contém as telas/páginas do aplicativo. Usa o sistema de roteamento baseado em arquivos do expo-router.
+- **app/**:Contém as telas/páginas do aplicativo. Usa o sistema de roteamento baseado em arquivos do expo-router.
   - _layout.tsx: Define o layout global do app (navegação, headers, etc.)
   - index.tsx: Página inicial com campos para IP/Porta e botão de envio
 
-- **assets/**: Armazena imagens, ícones e outros recursos estáticos do app.
+- **assets/**:Armazena imagens, ícones e outros recursos estáticos do app.
 
 
 ## 🔧 Interface do App
