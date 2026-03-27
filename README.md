@@ -78,7 +78,7 @@ ImWatchingYou/
 
 O app depende de um servidor Python rodando na mesma rede. Sem ele, o envio de dados não funciona.
 
-Repositório do servidor: [Hermeson69/Back-End-servidor-socket](https://github.com/Hermeson69/Back-End-servidor-socket)
+Repositório do servidor: [Raildom/Back-End-servidor-socket](https://github.com/Raildom/Back-End-servidor-socket.git)
 
 ```bash
 cd Back-End-servidor-socket
