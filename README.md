@@ -165,5 +165,5 @@ Declaradas em `app.json` e solicitadas em tempo de execução:
 
 ![alt text](assets/images/SaidaServidor.png)
 
-Terminal do servidor exibindo os dados recebidos em tempo real: timestamp, IP do cliente (celular), nível de bateria e coordenadas GPS(latitude e longitude).
+Terminal do servidor exibindo os dados recebidos em tempo real: timestamp, IP do cliente (celular), nível de bateria do celular do cliente e coordenadas GPS do mesmo(latitude e longitude).
 
