@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# ImWatchingYou 📱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Um aplicativo móvel desenvolvido com [Expo](https://expo.dev) e React Native para *Monitoramento Pervasivo*. O app atua como um nó sensor que coleta dados de bateria e localização GPS do dispositivo Android e os envia via socket TCP para um servidor central em Python.
 
-## Get started
+## 🎯 Objetivo da Atividade
 
-1. Install dependencies
+**Atividade 2 – Monitoramento Pervasivo (Android → Servidor Python por Sockets)**
 
+O aplicativo coleta em tempo real:
+- **Nível de bateria atual** (%)
+- **Coordenadas GPS** (Latitude e Longitude)
+
+Estes dados são enviados via conexão TCP socket para um servidor Python central, permitindo monitoramento pervasivo do dispositivo.
+
+## 🚀 Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone <https://github.com/Hermeson69/ImWatchingYou.git>
+   cd ImWatchingYou
+   ```
+   
+
+2. Instale as dependências do app:
    ```bash
    npm install
    ```
 
-2. Start the app
+## 📱 Como executar o app (Android)
 
+### Usando Expo Go (Recomendado para desenvolvimento rápido)
+
+1. Inicie o servidor de desenvolvimento:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+2. No terminal, pressione `a` para abrir no Android ou escaneie o QR code com o app Expo Go no seu dispositivo Android.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+##  Estrutura do Projeto
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+ImWatchingYou/
+├── app/                          # Páginas do app (file-based routing)
+│   ├── _layout.tsx              # Layout principal do app
+│   └── index.tsx                # Página inicial com interface de envio
+├── assets/                       # Recursos estáticos
+│   └── images/                  # Imagens do app
+├── app.json                      # Configurações do Expo
+├── package.json                  # Dependências e scripts
+├── tsconfig.json                 # Configurações do TypeScript
+├── metro.config.js               # Configurações do Metro bundler
+├── eslint.config.js              # Configurações do ESLint
+└── README.md                     # Este arquivo
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Descrição das pastas principais:
 
-## Learn more
+- **app/** */: Contém as telas/páginas do aplicativo. Usa o sistema de roteamento baseado em arquivos do expo-router.
+  - _layout.tsx: Define o layout global do app (navegação, headers, etc.)
+  - index.tsx: Página inicial com campos para IP/Porta e botão de envio
 
-To learn more about developing your project with Expo, look at the following resources:
+- **assets/** */: Armazena imagens, ícones e outros recursos estáticos do app.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+## 🔧 Interface do App
 
-Join our community of developers creating universal apps.
+![alt text](assets/images/apkImWatchingYou.jpg)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
